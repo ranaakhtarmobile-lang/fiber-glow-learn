@@ -1,18 +1,28 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen } from "lucide-react";
+import heroBg from "@/assets/hero-fiber-bg.jpg";
 
 const FiberHero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Animated background beams */}
+      {/* Background image */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-full h-px glow-line animate-fiber-pulse opacity-30" />
-        <div className="absolute top-2/4 left-0 w-full h-px glow-line animate-fiber-pulse opacity-20" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-3/4 left-0 w-full h-px glow-line animate-fiber-pulse opacity-15" style={{ animationDelay: "2s" }} />
-        {/* Radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full bg-glow-purple/5 blur-[100px]" />
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover opacity-30"
+          loading="eager"
+        />
+        {/* Gradient overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+      </div>
+
+      {/* Animated light beams */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-0 w-full h-px glow-line animate-fiber-pulse opacity-20" />
+        <div className="absolute top-2/4 left-0 w-full h-px glow-line animate-fiber-pulse opacity-15" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-3/4 left-0 w-full h-px glow-line animate-fiber-pulse opacity-10" style={{ animationDelay: "2s" }} />
       </div>
 
       <div className="container-content relative z-10 text-center px-4">
@@ -21,7 +31,7 @@ const FiberHero = () => {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-8 mono">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-8 mono backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-glow-pulse" />
             Complete Fiber Optic Knowledge Hub
           </div>
@@ -64,7 +74,7 @@ const FiberHero = () => {
           </Link>
           <Link
             to="/types"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-card/50 text-foreground font-semibold text-sm hover:bg-muted/50 active:scale-[0.97] transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-card/50 backdrop-blur-sm text-foreground font-semibold text-sm hover:bg-muted/50 active:scale-[0.97] transition-all duration-200"
           >
             Explore Types
             <ArrowRight className="w-4 h-4" />

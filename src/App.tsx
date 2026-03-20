@@ -12,6 +12,7 @@ import Types from "./pages/Types.tsx";
 import HowItWorks from "./pages/HowItWorks.tsx";
 import Tools from "./pages/Tools.tsx";
 import Uses from "./pages/Uses.tsx";
+import Components from "./pages/Components.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/tools" element={<Tools />} />
               <Route path="/uses" element={<Uses />} />
+              <Route path="/components" element={<Components />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
