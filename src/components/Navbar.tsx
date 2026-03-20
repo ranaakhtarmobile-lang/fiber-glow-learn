@@ -7,6 +7,7 @@ const navLinks = [
   { label: "What is Fiber", path: "/what-is-fiber" },
   { label: "Types", path: "/types" },
   { label: "How It Works", path: "/how-it-works" },
+  { label: "Components", path: "/components" },
   { label: "Tools", path: "/tools" },
   { label: "Uses", path: "/uses" },
 ];
