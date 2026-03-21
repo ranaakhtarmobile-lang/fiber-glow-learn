@@ -10,6 +10,7 @@ import Index from "./pages/Index.tsx";
 import WhatIsFiber from "./pages/WhatIsFiber.tsx";
 import Types from "./pages/Types.tsx";
 import HowItWorks from "./pages/HowItWorks.tsx";
+import Installation from "./pages/Installation.tsx";
 import Tools from "./pages/Tools.tsx";
 import Uses from "./pages/Uses.tsx";
 import Components from "./pages/Components.tsx";
