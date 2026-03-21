@@ -32,6 +32,7 @@ const App = () => (
               <Route path="/what-is-fiber" element={<WhatIsFiber />} />
               <Route path="/types" element={<Types />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/installation" element={<Installation />} />
               <Route path="/tools" element={<Tools />} />
               <Route path="/uses" element={<Uses />} />
               <Route path="/components" element={<Components />} />

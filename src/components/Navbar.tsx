@@ -36,7 +36,7 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+              className={`px-2.5 py-2 rounded-lg text-xs lg:text-sm font-medium transition-colors duration-200 ${
                 location.pathname === link.path
                   ? "text-primary bg-primary/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -45,6 +45,7 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          <NavSearch />
         </div>
 
         {/* Mobile toggle */}
