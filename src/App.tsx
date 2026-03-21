@@ -10,6 +10,7 @@ import Index from "./pages/Index.tsx";
 import WhatIsFiber from "./pages/WhatIsFiber.tsx";
 import Types from "./pages/Types.tsx";
 import HowItWorks from "./pages/HowItWorks.tsx";
+import Installation from "./pages/Installation.tsx";
 import Tools from "./pages/Tools.tsx";
 import Uses from "./pages/Uses.tsx";
 import Components from "./pages/Components.tsx";
@@ -31,6 +32,7 @@ const App = () => (
               <Route path="/what-is-fiber" element={<WhatIsFiber />} />
               <Route path="/types" element={<Types />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/installation" element={<Installation />} />
               <Route path="/tools" element={<Tools />} />
               <Route path="/uses" element={<Uses />} />
               <Route path="/components" element={<Components />} />
