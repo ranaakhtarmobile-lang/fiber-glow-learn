@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Zap } from "lucide-react";
+import NavSearch from "./NavSearch";
 
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "What is Fiber", path: "/what-is-fiber" },
   { label: "Types", path: "/types" },
   { label: "How It Works", path: "/how-it-works" },
+  { label: "Installation", path: "/installation" },
   { label: "Components", path: "/components" },
   { label: "Tools", path: "/tools" },
   { label: "Uses", path: "/uses" },
