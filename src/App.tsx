@@ -22,27 +22,29 @@ const queryClient = new QueryClient();
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Navbar />
-          <main className="min-h-screen">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/what-is-fiber" element={<WhatIsFiber />} />
-              <Route path="/types" element={<Types />} />
-              <Route path="/how-it-works" element={<HowItWorks />} />
-              <Route path="/installation" element={<Installation />} />
-              <Route path="/tools" element={<Tools />} />
-              <Route path="/uses" element={<Uses />} />
-              <Route path="/components" element={<Components />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </BrowserRouter>
-      </TooltipProvider>
+      <ThemeProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Navbar />
+            <main className="min-h-screen">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/what-is-fiber" element={<WhatIsFiber />} />
+                <Route path="/types" element={<Types />} />
+                <Route path="/how-it-works" element={<HowItWorks />} />
+                <Route path="/installation" element={<Installation />} />
+                <Route path="/tools" element={<Tools />} />
+                <Route path="/uses" element={<Uses />} />
+                <Route path="/components" element={<Components />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </BrowserRouter>
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   </HelmetProvider>
 );
