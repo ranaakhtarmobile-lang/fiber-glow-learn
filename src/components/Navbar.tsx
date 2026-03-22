@@ -20,6 +20,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggle } = useTheme();
 
   const handleCloseMenu = () => {
     setOpen(false);
