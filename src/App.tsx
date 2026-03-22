@@ -4,6 +4,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Index from "./pages/Index.tsx";
@@ -21,27 +22,29 @@ const queryClient = new QueryClient();
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Navbar />
-          <main className="min-h-screen">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/what-is-fiber" element={<WhatIsFiber />} />
-              <Route path="/types" element={<Types />} />
-              <Route path="/how-it-works" element={<HowItWorks />} />
-              <Route path="/installation" element={<Installation />} />
-              <Route path="/tools" element={<Tools />} />
-              <Route path="/uses" element={<Uses />} />
-              <Route path="/components" element={<Components />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </BrowserRouter>
-      </TooltipProvider>
+      <ThemeProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Navbar />
+            <main className="min-h-screen">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/what-is-fiber" element={<WhatIsFiber />} />
+                <Route path="/types" element={<Types />} />
+                <Route path="/how-it-works" element={<HowItWorks />} />
+                <Route path="/installation" element={<Installation />} />
+                <Route path="/tools" element={<Tools />} />
+                <Route path="/uses" element={<Uses />} />
+                <Route path="/components" element={<Components />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </BrowserRouter>
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   </HelmetProvider>
 );
