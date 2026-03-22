@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Zap, Search } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import NavSearch from "./NavSearch";
 
 const navLinks = [
