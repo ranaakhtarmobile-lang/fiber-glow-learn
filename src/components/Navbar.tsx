@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Zap, Search } from "lucide-react";
+import { Menu, X, Zap, Search, Sun, Moon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import NavSearch from "./NavSearch";
+import { useTheme } from "./ThemeProvider";
 
 const navLinks = [
   { label: "Home", path: "/" },
