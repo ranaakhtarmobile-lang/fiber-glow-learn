@@ -12,9 +12,9 @@ const searchItems = [
   { label: "Real World Uses", path: "/uses", keywords: ["isp", "data center", "medical", "military", "telecom"] },
 ];
 
-const NavSearch = () => {
+const NavSearch = ({ autoFocus, onNavigate }: { autoFocus?: boolean; onNavigate?: () => void }) => {
   const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(!!autoFocus);
   const [selectedIdx, setSelectedIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
