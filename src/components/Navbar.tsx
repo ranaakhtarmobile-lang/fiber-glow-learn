@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Zap, Search } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import NavSearch from "./NavSearch";
 
 const navLinks = [
@@ -65,53 +66,75 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 px-4 pb-4">
-          {mobileSearchOpen ? (
-            /* Search-only mode with blur background */
-            <div className="relative">
-              <div className="fixed inset-0 top-16 bg-background/80 backdrop-blur-md z-40" onClick={() => setMobileSearchOpen(false)} />
-              <div className="relative z-50 py-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <button
-                    onClick={() => setMobileSearchOpen(false)}
-                    className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-border/50"
+          >
+            <div className="px-4 pb-4">
+              {mobileSearchOpen ? (
+                <div className="relative">
+                  <div className="fixed inset-0 top-16 bg-background/80 backdrop-blur-md z-40" onClick={() => setMobileSearchOpen(false)} />
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="relative z-50 py-4"
                   >
-                    <X className="w-4 h-4" />
-                  </button>
-                  <span className="text-sm font-medium text-foreground">Search Topics</span>
+                    <div className="flex items-center gap-2 mb-3">
+                      <button
+                        onClick={() => setMobileSearchOpen(false)}
+                        className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                      <span className="text-sm font-medium text-foreground">Search Topics</span>
+                    </div>
+                    <NavSearch autoFocus onNavigate={handleCloseMenu} />
+                  </motion.div>
                 </div>
-                <NavSearch autoFocus onNavigate={handleCloseMenu} />
-              </div>
+              ) : (
+                <>
+                  <motion.button
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 }}
+                    onClick={() => setMobileSearchOpen(true)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors my-1 border border-border/50"
+                  >
+                    <Search className="w-4 h-4" />
+                    <span>Search topics...</span>
+                  </motion.button>
+                  {navLinks.map((link, i) => (
+                    <motion.div
+                      key={link.path}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * (i + 1) }}
+                    >
+                      <Link
+                        to={link.path}
+                        onClick={handleCloseMenu}
+                        className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                          location.pathname === link.path
+                            ? "text-primary bg-primary/10"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </>
+              )}
             </div>
-          ) : (
-            /* Normal menu with search button */
-            <>
-              <button
-                onClick={() => setMobileSearchOpen(true)}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors my-1 border border-border/50"
-              >
-                <Search className="w-4 h-4" />
-                <span>Search topics...</span>
-              </button>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={handleCloseMenu}
-                  className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                    location.pathname === link.path
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </>
-          )}
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
