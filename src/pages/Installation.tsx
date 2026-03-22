@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
-import { HardHat, Shovel, Wind, ShieldCheck, CheckCircle, AlertTriangle, ArrowRight } from "lucide-react";
+import { HardHat, Shovel, Wind, ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, Radio, Server, Cable, Wifi, Router, MonitorSmartphone, Network, Layers } from "lucide-react";
 
 const steps = [
   { step: 1, title: "Site Survey & Planning", desc: "Assess the route, measure distances, identify obstacles, and determine cable type. Plan splice points and equipment locations." },
