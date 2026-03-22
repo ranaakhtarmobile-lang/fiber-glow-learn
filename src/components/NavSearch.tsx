@@ -42,11 +42,16 @@ const NavSearch = ({ autoFocus, onNavigate }: { autoFocus?: boolean; onNavigate?
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (autoFocus) inputRef.current?.focus();
+  }, [autoFocus]);
+
   const goTo = (path: string) => {
     navigate(path);
     setQuery("");
     setOpen(false);
     inputRef.current?.blur();
+    onNavigate?.();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
