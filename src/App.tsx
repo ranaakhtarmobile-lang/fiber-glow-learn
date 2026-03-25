@@ -15,6 +15,8 @@ import Installation from "./pages/Installation.tsx";
 import Tools from "./pages/Tools.tsx";
 import Uses from "./pages/Uses.tsx";
 import Components from "./pages/Components.tsx";
+import Glossary from "./pages/Glossary.tsx";
+import OTDRSimulator from "./pages/OTDRSimulator.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
