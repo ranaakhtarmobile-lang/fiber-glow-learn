@@ -114,10 +114,122 @@ const Tools = () => {
               </div>
             </div>
           </ScrollReveal>
+
+          {/* Link Budget Calculator */}
+          <ScrollReveal delay={0.2}>
+            <div className="glass-card p-6 md:p-8 mt-8">
+              <h2 className="text-xl font-semibold mb-2">Fiber Link Budget Calculator</h2>
+              <p className="text-sm text-muted-foreground mb-6">Determine if your fiber link has sufficient power budget for reliable transmission.</p>
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+                <InputField label="Tx Power (OLT)" value={txPower} onChange={setTxPower} unit="dBm" step={0.5} />
+                <InputField label="Rx Sensitivity (ONT)" value={rxSensitivity} onChange={setRxSensitivity} unit="dBm" step={0.5} />
+                <InputField label="Cable Distance" value={budgetDistance} onChange={setBudgetDistance} unit="km" step={0.5} />
+                <InputField label="Cable Attenuation" value={budgetAttenuation} onChange={setBudgetAttenuation} unit="dB/km" step={0.01} />
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Splitter Ratio</label>
+                  <select
+                    value={splitterRatio}
+                    onChange={(e) => setSplitterRatio(e.target.value)}
+                    className="w-full bg-muted/30 border border-border/50 rounded-lg px-3 py-2 text-sm text-foreground mono focus:outline-none focus:ring-1 focus:ring-primary/50 transition-shadow"
+                  >
+                    {Object.keys(splitterLossMap).map((r) => (
+                      <option key={r} value={r}>{r} ({splitterLossMap[r]} dB)</option>
+                    ))}
+                  </select>
+                </div>
+                <InputField label="Safety Margin" value={safetyMargin} onChange={setSafetyMargin} unit="dB" step={0.5} />
+                <InputField label="Connectors" value={budgetConnectors} onChange={setBudgetConnectors} unit="" />
+                <InputField label="Loss per Connector" value={budgetConnLoss} onChange={setBudgetConnLoss} unit="dB" step={0.1} />
+                <InputField label="Splices" value={budgetSplices} onChange={setBudgetSplices} unit="" />
+                <InputField label="Loss per Splice" value={budgetSpliceLoss} onChange={setBudgetSpliceLoss} unit="dB" step={0.01} />
+              </div>
+
+              {/* Results */}
+              <div className="mt-6 grid sm:grid-cols-3 gap-4">
+                <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                  <div className="text-xs text-muted-foreground mb-1">Available Budget</div>
+                  <div className="text-2xl font-bold text-primary mono">{totalBudget.toFixed(1)} <span className="text-sm">dB</span></div>
+                  <div className="text-xs text-muted-foreground mt-1 mono">Tx − Rx sensitivity</div>
+                </div>
+                <div className="p-4 rounded-lg bg-destructive/5 border border-destructive/20">
+                  <div className="text-xs text-muted-foreground mb-1">Total Path Loss</div>
+                  <div className="text-2xl font-bold text-destructive mono">{totalPathLoss.toFixed(2)} <span className="text-sm">dB</span></div>
+                  <div className="text-xs text-muted-foreground mt-1 mono">All losses + margin</div>
+                </div>
+                <div className={`p-4 rounded-lg border ${budgetPass ? 'bg-green-500/5 border-green-500/20' : 'bg-destructive/10 border-destructive/30'}`}>
+                  <div className="text-xs text-muted-foreground mb-1">Remaining Margin</div>
+                  <div className={`text-2xl font-bold mono ${budgetPass ? 'text-green-500' : 'text-destructive'}`}>
+                    {remainingMargin.toFixed(2)} <span className="text-sm">dB</span>
+                  </div>
+                  <div className={`text-xs font-semibold mt-1 ${budgetPass ? 'text-green-500' : 'text-destructive'}`}>
+                    {budgetPass ? '✓ PASS — Link is viable' : '✗ FAIL — Insufficient budget'}
+                  </div>
+                </div>
+              </div>
+
+              {/* Breakdown */}
+              <div className="mt-4 p-4 rounded-lg bg-muted/20 border border-border/30">
+                <div className="text-xs font-medium text-muted-foreground mb-2">Loss Breakdown</div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs mono">
+                  <div><span className="text-muted-foreground">Fiber:</span> <span className="text-foreground">{(budgetDistance * budgetAttenuation).toFixed(2)} dB</span></div>
+                  <div><span className="text-muted-foreground">Splitter:</span> <span className="text-foreground">{splitterLoss.toFixed(1)} dB</span></div>
+                  <div><span className="text-muted-foreground">Connectors:</span> <span className="text-foreground">{(budgetConnectors * budgetConnLoss).toFixed(1)} dB</span></div>
+                  <div><span className="text-muted-foreground">Splices:</span> <span className="text-foreground">{(budgetSplices * budgetSpliceLoss).toFixed(2)} dB</span></div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* GPON vs XGS-PON vs EPON Comparison */}
+          <ScrollReveal delay={0.25}>
+            <div className="glass-card p-6 md:p-8 mt-8">
+              <h2 className="text-xl font-semibold mb-2">GPON vs XGS-PON vs EPON</h2>
+              <p className="text-sm text-muted-foreground mb-6">Side-by-side comparison of passive optical network technologies.</p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border/50">
+                      <th className="text-left py-3 px-3 text-muted-foreground font-medium">Feature</th>
+                      <th className="text-center py-3 px-3 font-semibold text-primary">GPON</th>
+                      <th className="text-center py-3 px-3 font-semibold text-glow-teal">XGS-PON</th>
+                      <th className="text-center py-3 px-3 font-semibold text-glow-purple">EPON</th>
+                    </tr>
+                  </thead>
+                  <tbody className="mono text-xs">
+                    {ponData.map((row, i) => (
+                      <tr key={i} className="border-b border-border/20 hover:bg-muted/20 transition-colors">
+                        <td className="py-3 px-3 font-medium text-foreground text-sm">{row.feature}</td>
+                        <td className="py-3 px-3 text-center">{row.gpon}</td>
+                        <td className="py-3 px-3 text-center">{row.xgspon}</td>
+                        <td className="py-3 px-3 text-center">{row.epon}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </>
   );
+};
+
+const ponData = [
+  { feature: "Standard", gpon: "ITU-T G.984", xgspon: "ITU-T G.9807.1", epon: "IEEE 802.3ah" },
+  { feature: "Downstream Speed", gpon: "2.488 Gbps", xgspon: "9.953 Gbps", epon: "1.25 Gbps" },
+  { feature: "Upstream Speed", gpon: "1.244 Gbps", xgspon: "9.953 Gbps", epon: "1.25 Gbps" },
+  { feature: "Symmetry", gpon: "Asymmetric", xgspon: "Symmetric", epon: "Symmetric" },
+  { feature: "Max Split Ratio", gpon: "1:64 (typ 1:32)", xgspon: "1:64 (typ 1:32)", epon: "1:32 (typ 1:16)" },
+  { feature: "Max Distance", gpon: "20 km", xgspon: "20 km", epon: "20 km (10 km typ)" },
+  { feature: "Downstream λ", gpon: "1490 nm", xgspon: "1577 nm", epon: "1490 nm" },
+  { feature: "Upstream λ", gpon: "1310 nm", xgspon: "1270 nm", epon: "1310 nm" },
+  { feature: "Encapsulation", gpon: "GEM frames", xgspon: "GEM frames", epon: "Ethernet frames" },
+  { feature: "Bandwidth Alloc", gpon: "T-CONT / DBA", xgspon: "T-CONT / DBA", epon: "MPCP / DBA" },
+  { feature: "Primary Market", gpon: "Global FTTH", xgspon: "Next-gen FTTH", epon: "Asia (Japan/China)" },
+  { feature: "Coexistence", gpon: "With RF overlay", xgspon: "With GPON on same ODN", epon: "10G-EPON upgrade" },
+  { feature: "Use Cases", gpon: "Residential, SMB", xgspon: "Enterprise, 5G backhaul", epon: "MDU, campus networks" },
+];
 };
 
 const InputField = ({
