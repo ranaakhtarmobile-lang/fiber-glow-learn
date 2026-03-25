@@ -19,6 +19,32 @@ const Tools = () => {
   const na = Math.sqrt(n1 * n1 - n2 * n2);
   const criticalAngle = Math.asin(n2 / n1) * (180 / Math.PI);
 
+  // Link Budget Calculator
+  const [txPower, setTxPower] = useState(5);
+  const [rxSensitivity, setRxSensitivity] = useState(-28);
+  const [budgetDistance, setBudgetDistance] = useState(20);
+  const [budgetAttenuation, setBudgetAttenuation] = useState(0.35);
+  const [splitterRatio, setSplitterRatio] = useState("1:32");
+  const [budgetConnectors, setBudgetConnectors] = useState(4);
+  const [budgetConnLoss, setBudgetConnLoss] = useState(0.5);
+  const [budgetSplices, setBudgetSplices] = useState(6);
+  const [budgetSpliceLoss, setBudgetSpliceLoss] = useState(0.1);
+  const [safetyMargin, setSafetyMargin] = useState(3);
+
+  const splitterLossMap: Record<string, number> = {
+    "1:2": 3.5, "1:4": 7.0, "1:8": 10.5, "1:16": 14.0, "1:32": 17.5, "1:64": 21.0,
+  };
+  const splitterLoss = splitterLossMap[splitterRatio] || 17.5;
+  const totalBudget = txPower - rxSensitivity;
+  const totalPathLoss =
+    (budgetDistance * budgetAttenuation) +
+    splitterLoss +
+    (budgetConnectors * budgetConnLoss) +
+    (budgetSplices * budgetSpliceLoss) +
+    safetyMargin;
+  const remainingMargin = totalBudget - totalPathLoss;
+  const budgetPass = remainingMargin >= 0;
+
   return (
     <>
       <Helmet>
