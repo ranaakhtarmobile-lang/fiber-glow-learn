@@ -230,7 +230,6 @@ const ponData = [
   { feature: "Coexistence", gpon: "With RF overlay", xgspon: "With GPON on same ODN", epon: "10G-EPON upgrade" },
   { feature: "Use Cases", gpon: "Residential, SMB", xgspon: "Enterprise, 5G backhaul", epon: "MDU, campus networks" },
 ];
-};
 
 const InputField = ({
   label, value, onChange, unit, step = 1,
