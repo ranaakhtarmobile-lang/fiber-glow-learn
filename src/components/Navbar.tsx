@@ -13,6 +13,8 @@ const navLinks = [
   { label: "Installation", path: "/installation" },
   { label: "Components", path: "/components" },
   { label: "Tools", path: "/tools" },
+  { label: "OTDR Sim", path: "/otdr-simulator" },
+  { label: "Glossary", path: "/glossary" },
   { label: "Uses", path: "/uses" },
 ];
 

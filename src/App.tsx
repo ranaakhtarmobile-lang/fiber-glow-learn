@@ -15,6 +15,8 @@ import Installation from "./pages/Installation.tsx";
 import Tools from "./pages/Tools.tsx";
 import Uses from "./pages/Uses.tsx";
 import Components from "./pages/Components.tsx";
+import Glossary from "./pages/Glossary.tsx";
+import OTDRSimulator from "./pages/OTDRSimulator.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -36,6 +38,8 @@ const App = () => (
                 <Route path="/how-it-works" element={<HowItWorks />} />
                 <Route path="/installation" element={<Installation />} />
                 <Route path="/tools" element={<Tools />} />
+                <Route path="/glossary" element={<Glossary />} />
+                <Route path="/otdr-simulator" element={<OTDRSimulator />} />
                 <Route path="/uses" element={<Uses />} />
                 <Route path="/components" element={<Components />} />
                 <Route path="*" element={<NotFound />} />
