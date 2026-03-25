@@ -45,6 +45,17 @@ const Tools = () => {
   const remainingMargin = totalBudget - totalPathLoss;
   const budgetPass = remainingMargin >= 0;
 
+  // dB-to-Linear Converter
+  const [dbValue, setDbValue] = useState(0);
+  const linearPower = Math.pow(10, dbValue / 10);
+  const linearVoltage = Math.pow(10, dbValue / 20);
+
+  // Wavelength-to-Frequency Converter
+  const [wavelengthNm, setWavelengthNm] = useState(1550);
+  const c = 299792458; // speed of light m/s
+  const frequencyTHz = c / (wavelengthNm * 1e-9) / 1e12;
+  const frequencyGHz = frequencyTHz * 1000;
+
   return (
     <>
       <Helmet>
@@ -206,6 +217,59 @@ const Tools = () => {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* dB-to-Linear & Wavelength-to-Frequency */}
+          <ScrollReveal delay={0.3}>
+            <div className="grid sm:grid-cols-2 gap-8 mt-8">
+              {/* dB to Linear */}
+              <div className="glass-card p-6 md:p-8">
+                <h2 className="text-xl font-semibold mb-2">dB → Linear Converter</h2>
+                <p className="text-xs text-muted-foreground mb-5">Convert decibels to linear power and voltage ratios.</p>
+                <InputField label="Value in dB" value={dbValue} onChange={setDbValue} unit="dB" step={0.1} />
+                <div className="mt-5 space-y-3">
+                  <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
+                    <div className="text-xs text-muted-foreground mb-0.5">Power Ratio (10^(dB/10))</div>
+                    <div className="text-2xl font-bold text-primary mono">
+                      {linearPower < 0.001 || linearPower > 1e6 ? linearPower.toExponential(4) : linearPower.toFixed(4)}
+                    </div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-glow-teal/5 border border-glow-teal/20">
+                    <div className="text-xs text-muted-foreground mb-0.5">Voltage Ratio (10^(dB/20))</div>
+                    <div className="text-2xl font-bold text-glow-teal mono">
+                      {linearVoltage < 0.001 || linearVoltage > 1e6 ? linearVoltage.toExponential(4) : linearVoltage.toFixed(4)}
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-3 text-xs text-muted-foreground mono space-y-1">
+                  <div>0 dB = 1× | 3 dB ≈ 2× | 10 dB = 10× | −3 dB ≈ 0.5×</div>
+                </div>
+              </div>
+
+              {/* Wavelength to Frequency */}
+              <div className="glass-card p-6 md:p-8">
+                <h2 className="text-xl font-semibold mb-2">λ → Frequency Converter</h2>
+                <p className="text-xs text-muted-foreground mb-5">Convert optical wavelength to frequency (f = c / λ).</p>
+                <InputField label="Wavelength" value={wavelengthNm} onChange={setWavelengthNm} unit="nm" step={1} />
+                <div className="mt-5 space-y-3">
+                  <div className="p-3 rounded-lg bg-glow-purple/5 border border-glow-purple/20">
+                    <div className="text-xs text-muted-foreground mb-0.5">Frequency (THz)</div>
+                    <div className="text-2xl font-bold text-glow-purple mono">
+                      {isFinite(frequencyTHz) ? frequencyTHz.toFixed(4) : "—"} <span className="text-sm">THz</span>
+                    </div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
+                    <div className="text-xs text-muted-foreground mb-0.5">Frequency (GHz)</div>
+                    <div className="text-2xl font-bold text-primary mono">
+                      {isFinite(frequencyGHz) ? frequencyGHz.toFixed(1) : "—"} <span className="text-sm">GHz</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-3 text-xs text-muted-foreground mono space-y-1">
+                  <div>850 nm → 352.7 THz | 1310 nm → 228.8 THz | 1550 nm → 193.4 THz</div>
+                </div>
               </div>
             </div>
           </ScrollReveal>
