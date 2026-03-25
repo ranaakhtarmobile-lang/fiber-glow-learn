@@ -45,6 +45,17 @@ const Tools = () => {
   const remainingMargin = totalBudget - totalPathLoss;
   const budgetPass = remainingMargin >= 0;
 
+  // dB-to-Linear Converter
+  const [dbValue, setDbValue] = useState(0);
+  const linearPower = Math.pow(10, dbValue / 10);
+  const linearVoltage = Math.pow(10, dbValue / 20);
+
+  // Wavelength-to-Frequency Converter
+  const [wavelengthNm, setWavelengthNm] = useState(1550);
+  const c = 299792458; // speed of light m/s
+  const frequencyTHz = c / (wavelengthNm * 1e-9) / 1e12;
+  const frequencyGHz = frequencyTHz * 1000;
+
   return (
     <>
       <Helmet>
