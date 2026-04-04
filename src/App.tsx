@@ -17,6 +17,8 @@ import Uses from "./pages/Uses.tsx";
 import Components from "./pages/Components.tsx";
 import Glossary from "./pages/Glossary.tsx";
 import OTDRSimulator from "./pages/OTDRSimulator.tsx";
+import CableGuide from "./pages/CableGuide.tsx";
+import Quiz from "./pages/Quiz.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
