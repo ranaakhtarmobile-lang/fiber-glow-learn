@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import { Zap, Mail, Github } from "lucide-react";
+import AdSlot from "./AdSlot";
 
 const Footer = () => (
+  <>
+    <div className="container-content px-4 py-6">
+      <AdSlot
+        containerId="container-564c505d47d7b7c31c0bf5471f77a5b7"
+        scriptSrc="https://pl29061419.profitablecpmratenetwork.com/564c505d47d7b7c31c0bf5471f77a5b7/invoke.js"
+        dataAttrs={{ "async": "async", "data-cfasync": "false" }}
+      />
+    </div>
   <footer className="border-t border-border/50 bg-card/30">
     <div className="container-content px-4 py-12">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -48,6 +57,7 @@ const Footer = () => (
       </div>
     </div>
   </footer>
+  </>
 );
 
 export default Footer;
