@@ -17,6 +17,8 @@ import Uses from "./pages/Uses.tsx";
 import Components from "./pages/Components.tsx";
 import Glossary from "./pages/Glossary.tsx";
 import OTDRSimulator from "./pages/OTDRSimulator.tsx";
+import CableGuide from "./pages/CableGuide.tsx";
+import Quiz from "./pages/Quiz.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -42,6 +44,8 @@ const App = () => (
                 <Route path="/otdr-simulator" element={<OTDRSimulator />} />
                 <Route path="/uses" element={<Uses />} />
                 <Route path="/components" element={<Components />} />
+                <Route path="/cable-guide" element={<CableGuide />} />
+                <Route path="/quiz" element={<Quiz />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
