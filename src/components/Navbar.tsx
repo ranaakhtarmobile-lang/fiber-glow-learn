@@ -16,6 +16,8 @@ const navLinks = [
   { label: "OTDR Sim", path: "/otdr-simulator" },
   { label: "Glossary", path: "/glossary" },
   { label: "Uses", path: "/uses" },
+  { label: "Cable Guide", path: "/cable-guide" },
+  { label: "Quiz", path: "/quiz" },
 ];
 
 const Navbar = () => {

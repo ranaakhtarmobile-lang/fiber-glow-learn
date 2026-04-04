@@ -44,6 +44,8 @@ const App = () => (
                 <Route path="/otdr-simulator" element={<OTDRSimulator />} />
                 <Route path="/uses" element={<Uses />} />
                 <Route path="/components" element={<Components />} />
+                <Route path="/cable-guide" element={<CableGuide />} />
+                <Route path="/quiz" element={<Quiz />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
