@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
+import SponsoredLink from "@/components/SponsoredLink";
 import { Globe, Server, HeartPulse, Shield, Radio, Factory } from "lucide-react";
 
 const useCases = [
@@ -43,6 +44,11 @@ const Uses = () => (
               </div>
             </ScrollReveal>
           ))}
+        </div>
+
+        {/* Sponsored link */}
+        <div className="flex justify-center mt-10">
+          <SponsoredLink variant={2} />
         </div>
       </div>
     </section>

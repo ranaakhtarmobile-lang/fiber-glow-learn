@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 import { Cable, MapPin, Ruler, Target, CheckCircle, AlertTriangle, RotateCcw } from "lucide-react";
 
 interface CableType {
@@ -194,9 +196,9 @@ const CableGuide = () => {
             </div>
           </ScrollReveal>
 
-          {/* Ad Slot - Top */}
-          <div className="my-6 flex justify-center">
-            <div id="adsterra-cable-top" className="w-full max-w-[728px] min-h-[90px]" />
+          {/* Sponsored link */}
+          <div className="flex justify-center my-6">
+            <SponsoredLink variant={0} />
           </div>
 
           {/* Questions */}
@@ -288,10 +290,8 @@ const CableGuide = () => {
             </ScrollReveal>
           )}
 
-          {/* Ad Slot - Bottom */}
-          <div className="my-8 flex justify-center">
-            <div id="adsterra-cable-bottom" className="w-full max-w-[728px] min-h-[90px]" />
-          </div>
+          {/* In-article ad */}
+          <InArticleAd />
         </div>
       </div>
     </>

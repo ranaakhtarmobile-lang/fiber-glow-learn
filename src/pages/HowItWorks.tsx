@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
+import SponsoredLink from "@/components/SponsoredLink";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
