@@ -3,7 +3,7 @@ import FiberHero from "@/components/FiberHero";
 import TopicCards from "@/components/TopicCards";
 import AdvantagesSection from "@/components/AdvantagesSection";
 import FAQSection from "@/components/FAQSection";
-import AdSlot from "@/components/AdSlot";
+import BannerAd from "@/components/BannerAd";
 
 const Index = () => (
   <>
@@ -24,11 +24,7 @@ const Index = () => (
     </Helmet>
     <FiberHero />
     <div className="container-content px-4 py-4">
-      <AdSlot
-        containerId="container-564c505d47d7b7c31c0bf5471f77a5b7-home"
-        scriptSrc="https://pl29061419.profitablecpmratenetwork.com/564c505d47d7b7c31c0bf5471f77a5b7/invoke.js"
-        dataAttrs={{ "async": "async", "data-cfasync": "false" }}
-      />
+      <BannerAd />
     </div>
     <TopicCards />
     <AdvantagesSection />

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { Zap, Mail, Github } from "lucide-react";
 import AdSlot from "./AdSlot";
+import BannerAd from "./BannerAd";
 
 const Footer = () => (
   <>
-    <div className="container-content px-4 py-6">
+    <div className="container-content px-4 py-6 space-y-4">
+      <BannerAd />
       <AdSlot
         containerId="container-564c505d47d7b7c31c0bf5471f77a5b7"
         scriptSrc="https://pl29061419.profitablecpmratenetwork.com/564c505d47d7b7c31c0bf5471f77a5b7/invoke.js"
