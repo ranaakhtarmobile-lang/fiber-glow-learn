@@ -104,6 +104,11 @@ const HowItWorks = () => (
           </div>
         </ScrollReveal>
 
+        {/* Sponsored link */}
+        <div className="flex justify-center my-8">
+          <SponsoredLink variant={1} />
+        </div>
+
         <ScrollReveal>
           <div className="text-center">
             <Link
