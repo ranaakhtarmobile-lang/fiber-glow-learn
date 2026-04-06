@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
+import SponsoredLink from "@/components/SponsoredLink";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -102,6 +103,11 @@ const HowItWorks = () => (
             </div>
           </div>
         </ScrollReveal>
+
+        {/* Sponsored link */}
+        <div className="flex justify-center my-8">
+          <SponsoredLink variant={1} />
+        </div>
 
         <ScrollReveal>
           <div className="text-center">

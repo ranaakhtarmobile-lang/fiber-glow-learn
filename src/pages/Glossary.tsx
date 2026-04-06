@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 
 const glossaryTerms = [
   { term: "APD", definition: "Avalanche Photodiode — a highly sensitive semiconductor photodetector that uses avalanche multiplication to amplify the signal. Used in long-haul fiber links." },
@@ -133,6 +135,11 @@ const Glossary = () => {
             </ScrollReveal>
           )}
 
+          {/* Sponsored link */}
+          <div className="flex justify-center mb-8">
+            <SponsoredLink variant={3} />
+          </div>
+
           {/* Terms */}
           {grouped.length === 0 ? (
             <div className="text-center py-16 text-muted-foreground">
@@ -140,26 +147,32 @@ const Glossary = () => {
               <p className="text-sm">Try a different search query</p>
             </div>
           ) : (
-            grouped.map(([letter, terms]) => (
-              <div key={letter} id={`letter-${letter}`} className="mb-8">
-                <div className="sticky top-16 z-10 bg-background/90 backdrop-blur-sm py-2 mb-3 border-b border-border/30">
-                  <span className="text-2xl font-bold text-primary mono">{letter}</span>
+            grouped.map(([letter, terms], groupIdx) => (
+              <div key={letter}>
+                <div id={`letter-${letter}`} className="mb-8">
+                  <div className="sticky top-16 z-10 bg-background/90 backdrop-blur-sm py-2 mb-3 border-b border-border/30">
+                    <span className="text-2xl font-bold text-primary mono">{letter}</span>
+                  </div>
+                  <div className="space-y-3">
+                    {terms.map((t) => (
+                      <div
+                        key={t.term}
+                        className="glass-card p-4 hover:border-primary/30 transition-colors group"
+                      >
+                        <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors mono mb-1.5">
+                          {t.term}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {t.definition}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="space-y-3">
-                  {terms.map((t) => (
-                    <div
-                      key={t.term}
-                      className="glass-card p-4 hover:border-primary/30 transition-colors group"
-                    >
-                      <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors mono mb-1.5">
-                        {t.term}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {t.definition}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                {/* Insert ad after every 5th letter group */}
+                {(groupIdx + 1) % 5 === 0 && groupIdx < grouped.length - 1 && (
+                  <InArticleAd />
+                )}
               </div>
             ))
           )}

@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 import { HardHat, Shovel, Wind, ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, Radio, Server, Cable, Wifi, Router, MonitorSmartphone, Network, Layers } from "lucide-react";
 
 const steps = [
@@ -99,6 +101,11 @@ const Installation = () => (
         </div>
       </section>
 
+      {/* In-article ad between sections */}
+      <div className="container-content px-4">
+        <InArticleAd />
+      </div>
+
       {/* Underground vs Aerial */}
       <section className="section-padding-sm bg-card/30">
         <div className="container-content">
@@ -155,6 +162,11 @@ const Installation = () => (
           </div>
         </div>
       </section>
+
+      {/* Sponsored link */}
+      <div className="container-content px-4 flex justify-center py-4">
+        <SponsoredLink variant={1} />
+      </div>
 
       {/* FTTH Network: Fiber to ONT to Router to WiFi */}
       <section className="section-padding">
@@ -385,6 +397,11 @@ const Installation = () => (
           </ScrollReveal>
         </div>
       </section>
+
+      {/* In-article ad before safety section */}
+      <div className="container-content px-4">
+        <InArticleAd />
+      </div>
 
       {/* Safety */}
       <section className="section-padding">
