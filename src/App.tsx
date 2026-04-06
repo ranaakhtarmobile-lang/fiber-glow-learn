@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BannerAd from "@/components/BannerAd";
 import Index from "./pages/Index.tsx";
 import WhatIsFiber from "./pages/WhatIsFiber.tsx";
 import Types from "./pages/Types.tsx";
