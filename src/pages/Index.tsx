@@ -4,6 +4,8 @@ import TopicCards from "@/components/TopicCards";
 import AdvantagesSection from "@/components/AdvantagesSection";
 import FAQSection from "@/components/FAQSection";
 import BannerAd from "@/components/BannerAd";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 
 const Index = () => (
   <>
@@ -27,7 +29,13 @@ const Index = () => (
       <BannerAd />
     </div>
     <TopicCards />
+    <InArticleAd />
+    <div className="flex justify-center py-4">
+      <SponsoredLink variant={0} />
+    </div>
     <AdvantagesSection />
+    <InArticleAd />
+    <SponsoredLink variant={1} className="mx-auto my-4" />
     <FAQSection />
   </>
 );

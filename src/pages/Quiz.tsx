@@ -7,6 +7,8 @@ import { Progress } from "@/components/ui/progress";
 import ScrollReveal from "@/components/ScrollReveal";
 import { BrainCircuit, CheckCircle, XCircle, RotateCcw, Trophy, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 
 interface Question {
   question: string;
@@ -107,8 +109,9 @@ const Quiz = () => {
           </ScrollReveal>
 
           {/* Ad Slot - Top */}
-          <div className="my-6 flex justify-center">
-            <div id="adsterra-quiz-top" className="w-full max-w-[728px] min-h-[90px]" />
+          <InArticleAd />
+          <div className="flex justify-center mb-6">
+            <SponsoredLink variant={0} />
           </div>
 
           {!finished ? (
@@ -200,9 +203,8 @@ const Quiz = () => {
           )}
 
           {/* Ad Slot - Bottom */}
-          <div className="my-8 flex justify-center">
-            <div id="adsterra-quiz-bottom" className="w-full max-w-[728px] min-h-[90px]" />
-          </div>
+          <InArticleAd />
+          <SponsoredLink variant={1} className="mx-auto" />
         </div>
       </div>
     </>

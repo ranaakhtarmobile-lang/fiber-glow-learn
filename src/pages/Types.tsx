@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 
 const fiberTypes = [
   {
@@ -77,6 +79,11 @@ const Types = () => (
               </div>
             </ScrollReveal>
           ))}
+        </div>
+
+        <InArticleAd />
+        <div className="flex justify-center mb-8">
+          <SponsoredLink variant={0} />
         </div>
 
         {/* Comparison table */}
