@@ -6,28 +6,45 @@ const DIRECT_LINKS = [
 ];
 
 const variants = [
-  "Explore Fiber Solutions →",
-  "Discover Network Tools →",
-  "Learn More →",
-  "Recommended Resources →",
-  "Featured Partner →",
+  "Explore Fiber Solutions",
+  "Discover Network Tools",
+  "Recommended Resources",
+  "Featured Partner Offer",
+  "Open Sponsored Resource",
 ];
 
 /**
- * Subtle sponsored text link / button using the Adsterra direct link.
- * Rotates through CTA text variants based on index prop.
+ * Visible sponsored CTA using the Adsterra direct link.
+ * Rotates destination URL and CTA text by variant.
  */
-const SponsoredLink = ({ variant = 0, className = "" }: { variant?: number; className?: string }) => (
-  <a
-    href={DIRECT_LINKS[variant % DIRECT_LINKS.length]}
-    target="_blank"
-    rel="noopener noreferrer sponsored"
-    className={`group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border/50 bg-muted/20 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200 text-sm text-muted-foreground hover:text-primary ${className}`}
-  >
-    <ExternalLink className="w-3.5 h-3.5 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity" />
-    <span>{variants[variant % variants.length]}</span>
-    <span className="text-[10px] opacity-40 ml-1">Ad</span>
-  </a>
-);
+const SponsoredLink = ({ variant = 0, className = "" }: { variant?: number; className?: string }) => {
+  const linkIndex = variant % DIRECT_LINKS.length;
+  const copyIndex = variant % variants.length;
+
+  return (
+    <a
+      href={DIRECT_LINKS[linkIndex]}
+      target="_blank"
+      rel="noopener noreferrer sponsored"
+      className={`group inline-flex w-full max-w-[728px] items-center justify-between gap-4 rounded-2xl border border-primary/20 bg-card/40 px-4 py-4 text-left transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 ${className}`}
+    >
+      <div className="min-w-0">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+          Sponsored link
+        </div>
+        <div className="mt-1 text-sm font-semibold text-foreground sm:text-base">
+          {variants[copyIndex]}
+        </div>
+        <div className="mt-1 text-xs text-muted-foreground">
+          Tap to open this partner offer in a new tab.
+        </div>
+      </div>
+
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border/50 bg-muted/40 transition-colors group-hover:border-primary/30 group-hover:bg-primary/10">
+        <ExternalLink className="h-4 w-4 text-primary" />
+      </div>
+    </a>
+  );
+};
 
 export default SponsoredLink;

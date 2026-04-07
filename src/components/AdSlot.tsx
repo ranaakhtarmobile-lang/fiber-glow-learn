@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface AdSlotProps {
   /** Unique HTML id for the container */
@@ -10,43 +10,74 @@ interface AdSlotProps {
   className?: string;
 }
 
-/**
- * Generic Adsterra ad slot component.
- * 
- * Usage:
- * 1. Get your Adsterra ad code (banner / native / popunder).
- * 2. Pass the script `src` URL and any `data-*` attributes.
- * 3. The component injects the script once on mount.
- *
- * Until you add a real Adsterra script, a placeholder is shown
- * so you can see where ads will appear.
- */
+const isPreviewHost = () => {
+  if (typeof window === "undefined") return false;
+  const { hostname } = window.location;
+  return hostname.endsWith("lovableproject.com") || hostname.startsWith("id-preview--");
+};
+
 const AdSlot = ({ containerId, scriptSrc, dataAttrs, className = "" }: AdSlotProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const injected = useRef(false);
+  const [showFallback, setShowFallback] = useState(() => !scriptSrc || isPreviewHost());
 
   useEffect(() => {
-    if (!scriptSrc || injected.current || !containerRef.current) return;
+    const container = containerRef.current;
+
+    if (!container || !scriptSrc || injected.current) {
+      if (!scriptSrc) setShowFallback(true);
+      return;
+    }
+
     injected.current = true;
+
+    const hasRenderedAd = () => Boolean(container.querySelector("iframe, ins, img, object, embed"));
+
+    const observer = new MutationObserver(() => {
+      if (hasRenderedAd()) {
+        setShowFallback(false);
+      }
+    });
+
+    observer.observe(container, { childList: true, subtree: true });
 
     const script = document.createElement("script");
     script.src = scriptSrc;
     script.async = true;
+
     if (dataAttrs) {
-      Object.entries(dataAttrs).forEach(([k, v]) => script.setAttribute(k, v));
+      Object.entries(dataAttrs).forEach(([key, value]) => script.setAttribute(key, value));
     }
-    containerRef.current.appendChild(script);
+
+    container.appendChild(script);
+
+    const timeoutId = window.setTimeout(() => {
+      if (!hasRenderedAd()) {
+        setShowFallback(true);
+      }
+    }, 1800);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeoutId);
+    };
   }, [scriptSrc, dataAttrs]);
 
   return (
     <div
       ref={containerRef}
       id={containerId}
-      className={`flex items-center justify-center ${className}`}
+      className={`relative flex min-h-[90px] w-full items-center justify-center ${className}`}
     >
-      {!scriptSrc && (
-        <div className="w-full max-w-[728px] h-[90px] rounded-lg border border-dashed border-border/50 bg-muted/20 flex items-center justify-center text-xs text-muted-foreground">
-          Ad Slot — Add your Adsterra script URL
+      {showFallback && (
+        <div className="flex min-h-[90px] w-full max-w-[728px] flex-col items-center justify-center rounded-xl border border-border/50 bg-muted/20 px-4 py-4 text-center">
+          <span className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+            Sponsored placement
+          </span>
+          <span className="mt-2 text-sm font-medium text-foreground">Ad preview placeholder</span>
+          <span className="mt-1 text-xs text-muted-foreground">
+            Live ad publish ke baad yahan render hogi.
+          </span>
         </div>
       )}
     </div>
