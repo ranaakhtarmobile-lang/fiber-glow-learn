@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState, useMemo } from "react";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 
 type FiberEvent = {
   id: string;
@@ -281,6 +283,11 @@ const OTDRSimulator = () => {
               </div>
             </div>
           </ScrollReveal>
+
+          <InArticleAd />
+          <div className="flex justify-center mb-6">
+            <SponsoredLink variant={0} />
+          </div>
 
           {/* Controls */}
           <div className="grid md:grid-cols-2 gap-8">

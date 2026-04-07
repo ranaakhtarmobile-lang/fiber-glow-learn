@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Cable, Plug, Cpu, MonitorDot, Layers, Settings, ArrowRight, Eye, Zap, Wrench, Droplets, Ruler, Shield, Radio } from "lucide-react";
 import { Link } from "react-router-dom";
+import InArticleAd from "@/components/InArticleAd";
+import SponsoredLink from "@/components/SponsoredLink";
 
 const mainComponents = [
   {
@@ -245,6 +247,11 @@ const Components = () => (
           ))}
         </div>
 
+        <InArticleAd />
+        <div className="flex justify-center mb-8">
+          <SponsoredLink variant={0} />
+        </div>
+
         {/* Small Tools Section */}
         <ScrollReveal>
           <h2 className="text-2xl md:text-4xl font-bold mb-3">
@@ -269,6 +276,9 @@ const Components = () => (
             </ScrollReveal>
           ))}
         </div>
+
+        <InArticleAd />
+        <SponsoredLink variant={1} className="mx-auto mb-8" />
 
         {/* Wire / Cable Types Section */}
         <ScrollReveal>
@@ -300,6 +310,8 @@ const Components = () => (
             </ScrollReveal>
           ))}
         </div>
+
+        <InArticleAd />
 
         {/* Connector Details Section */}
         <ScrollReveal>
