@@ -1,6 +1,9 @@
 import { ExternalLink } from "lucide-react";
 
-const DIRECT_LINK_URL = "https://www.profitablecpmratenetwork.com/m4rd58pnar?key=30b8a178e32e26af83258a490859cd61";
+const DIRECT_LINKS = [
+  "https://www.profitablecpmratenetwork.com/m4rd58pnar?key=30b8a178e32e26af83258a490859cd61",
+  "https://www.profitablecpmratenetwork.com/eyh4xzh4s?key=2f400eda7efa96ed17aba45a346b7a42",
+];
 
 const variants = [
   "Explore Fiber Solutions →",
