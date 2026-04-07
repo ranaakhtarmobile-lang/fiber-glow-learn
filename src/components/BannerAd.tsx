@@ -1,4 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const isPreviewHost = () => {
+  if (typeof window === "undefined") return false;
+  const { hostname } = window.location;
+  return hostname.endsWith("lovableproject.com") || hostname.startsWith("id-preview--");
+};
 
 /**
  * 728x90 Adsterra banner ad.
@@ -7,15 +13,27 @@ import { useEffect, useRef } from "react";
 const BannerAd = ({ className = "" }: { className?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const injected = useRef(false);
+  const [showFallback, setShowFallback] = useState(() => isPreviewHost());
 
   useEffect(() => {
-    if (injected.current || !containerRef.current) return;
+    const container = containerRef.current;
+    if (!container || injected.current) return;
+
     injected.current = true;
 
-    // Options script
+    const hasRenderedAd = () => Boolean(container.querySelector("iframe, ins, img, object, embed"));
+
+    const observer = new MutationObserver(() => {
+      if (hasRenderedAd()) {
+        setShowFallback(false);
+      }
+    });
+
+    observer.observe(container, { childList: true, subtree: true });
+
     const optScript = document.createElement("script");
     optScript.innerHTML = `
-      atOptions = {
+      window.atOptions = {
         'key' : 'e738e889feb8f17ff3a77d2061f645e0',
         'format' : 'iframe',
         'height' : 90,
@@ -23,21 +41,43 @@ const BannerAd = ({ className = "" }: { className?: string }) => {
         'params' : {}
       };
     `;
-    containerRef.current.appendChild(optScript);
+    container.appendChild(optScript);
 
-    // Invoke script
     const invokeScript = document.createElement("script");
     invokeScript.src = "https://www.highperformanceformat.com/e738e889feb8f17ff3a77d2061f645e0/invoke.js";
     invokeScript.async = true;
-    containerRef.current.appendChild(invokeScript);
+    container.appendChild(invokeScript);
+
+    const timeoutId = window.setTimeout(() => {
+      if (!hasRenderedAd()) {
+        setShowFallback(true);
+      }
+    }, 1800);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className={`flex items-center justify-center overflow-hidden ${className}`}
-      style={{ maxWidth: "728px", margin: "0 auto" }}
-    />
+      className={`relative flex min-h-[90px] w-full max-w-[728px] items-center justify-center overflow-hidden ${className}`}
+      style={{ margin: "0 auto" }}
+    >
+      {showFallback && (
+        <div className="flex min-h-[90px] w-full flex-col items-center justify-center rounded-xl border border-border/50 bg-muted/20 px-4 py-4 text-center">
+          <span className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+            Sponsored banner
+          </span>
+          <span className="mt-2 text-sm font-medium text-foreground">728 × 90 ad slot</span>
+          <span className="mt-1 text-xs text-muted-foreground">
+            Preview mode mein placeholder dikh raha hai.
+          </span>
+        </div>
+      )}
+    </div>
   );
 };
 
