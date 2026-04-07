@@ -19,7 +19,7 @@ const variants = [
  */
 const SponsoredLink = ({ variant = 0, className = "" }: { variant?: number; className?: string }) => (
   <a
-    href={DIRECT_LINK_URL}
+    href={DIRECT_LINKS[variant % DIRECT_LINKS.length]}
     target="_blank"
     rel="noopener noreferrer sponsored"
     className={`group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border/50 bg-muted/20 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200 text-sm text-muted-foreground hover:text-primary ${className}`}
