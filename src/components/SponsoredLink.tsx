@@ -1,6 +1,9 @@
 import { ExternalLink } from "lucide-react";
 
-const DIRECT_LINK_URL = "https://www.profitablecpmratenetwork.com/m4rd58pnar?key=30b8a178e32e26af83258a490859cd61";
+const DIRECT_LINKS = [
+  "https://www.profitablecpmratenetwork.com/m4rd58pnar?key=30b8a178e32e26af83258a490859cd61",
+  "https://www.profitablecpmratenetwork.com/eyh4xzh4s?key=2f400eda7efa96ed17aba45a346b7a42",
+];
 
 const variants = [
   "Explore Fiber Solutions →",
@@ -16,7 +19,7 @@ const variants = [
  */
 const SponsoredLink = ({ variant = 0, className = "" }: { variant?: number; className?: string }) => (
   <a
-    href={DIRECT_LINK_URL}
+    href={DIRECT_LINKS[variant % DIRECT_LINKS.length]}
     target="_blank"
     rel="noopener noreferrer sponsored"
     className={`group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border/50 bg-muted/20 hover:bg-primary/5 hover:border-primary/30 transition-all duration-200 text-sm text-muted-foreground hover:text-primary ${className}`}
