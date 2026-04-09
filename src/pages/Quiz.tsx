@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -89,10 +89,7 @@ const Quiz = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Fiber Optic Quiz | Test Your Knowledge | FiberOpticGuide</title>
-        <meta name="description" content="Test your fiber optic knowledge with our interactive quiz covering GPON, OTDR, connectors, installation, and more." />
-      </Helmet>
+      <SEOHead title="Fiber Optic Quiz – Test Your Knowledge" description="Test your fiber optic knowledge with our interactive quiz covering GPON, OTDR, connectors, installation, and more." path="/quiz" />
       <div className="pt-24 pb-16">
         <div className="container-content px-4 max-w-2xl mx-auto">
           <ScrollReveal>

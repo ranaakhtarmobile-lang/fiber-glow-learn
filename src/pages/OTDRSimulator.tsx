@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState, useMemo } from "react";
 import InArticleAd from "@/components/InArticleAd";
@@ -123,10 +123,7 @@ const OTDRSimulator = () => {
 
   return (
     <>
-      <Helmet>
-        <title>OTDR Trace Simulator – Interactive Fiber Event Viewer | Fiber Optic Guide</title>
-        <meta name="description" content="Interactive OTDR trace simulator. Visualize fiber events — connectors, splices, splitters, bends — and analyze signal loss along a fiber link." />
-      </Helmet>
+      <SEOHead title="OTDR Trace Simulator – Interactive Fiber Event Viewer" description="Interactive OTDR trace simulator. Visualize fiber events — connectors, splices, splitters, bends — and analyze signal loss." path="/otdr-simulator" />
 
       <section className="section-padding pt-28">
         <div className="container-content max-w-5xl">

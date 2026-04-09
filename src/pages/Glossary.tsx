@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
@@ -80,10 +80,7 @@ const Glossary = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Fiber Optic Glossary – 50+ Terms & Definitions | Fiber Optic Guide</title>
-        <meta name="description" content="Comprehensive fiber optic glossary with 50+ searchable terms covering GPON, OTDR, splicing, connectors, WDM, and more." />
-      </Helmet>
+      <SEOHead title="Fiber Optic Glossary – 50+ Terms & Definitions" description="Comprehensive fiber optic glossary with 50+ searchable terms covering GPON, OTDR, splicing, connectors, WDM, and more." path="/glossary" />
 
       <section className="section-padding pt-28">
         <div className="container-content max-w-4xl">

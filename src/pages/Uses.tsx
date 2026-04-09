@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import SponsoredLink from "@/components/SponsoredLink";
 import { Globe, Server, HeartPulse, Shield, Radio, Factory } from "lucide-react";
@@ -14,10 +14,7 @@ const useCases = [
 
 const Uses = () => (
   <>
-    <Helmet>
-      <title>Real World Uses of Fiber Optics – Applications & Industries | Fiber Optic Guide</title>
-      <meta name="description" content="Discover how fiber optic technology is used in internet, data centers, healthcare, military, telecommunications, and industrial applications." />
-    </Helmet>
+    <SEOHead title="Real World Uses of Fiber Optics – Applications" description="Discover how fiber optic technology is used in internet, data centers, healthcare, military, telecommunications, and industrial applications." path="/uses" />
 
     <section className="section-padding pt-28">
       <div className="container-content">

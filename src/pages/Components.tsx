@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Cable, Plug, Cpu, MonitorDot, Layers, Settings, ArrowRight, Eye, Zap, Wrench, Droplets, Ruler, Shield, Radio } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -199,10 +199,7 @@ const connectorDetails = [
 
 const Components = () => (
   <>
-    <Helmet>
-      <title>Fiber Optic Components & Tools – Connectors, Splicers, OTDR, Cables | Fiber Optic Guide</title>
-      <meta name="description" content="Complete guide to fiber optic components: cables, connectors (SC, LC, ST, FC, MTP), splicers, OTDR, VFL, power meters, cleaning kits, and all cable types with detailed specs." />
-    </Helmet>
+    <SEOHead title="Fiber Optic Components & Tools – Connectors, Splicers, OTDR" description="Complete guide to fiber optic components: cables, connectors, splicers, OTDR, VFL, power meters, cleaning kits with detailed specs." path="/components" />
 
     <section className="section-padding pt-28">
       <div className="container-content">

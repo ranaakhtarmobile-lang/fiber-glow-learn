@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -175,10 +175,7 @@ const CableGuide = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Fiber Cable Selection Guide | FiberOpticGuide</title>
-        <meta name="description" content="Interactive guide to choose the right fiber optic cable type based on your installation environment, distance, and application requirements." />
-      </Helmet>
+      <SEOHead title="Fiber Cable Selection Guide" description="Interactive guide to choose the right fiber optic cable type based on your installation environment, distance, and application." path="/cable-guide" />
       <div className="pt-24 pb-16">
         <div className="container-content px-4">
           <ScrollReveal>
