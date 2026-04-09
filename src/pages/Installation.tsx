@@ -38,10 +38,11 @@ const safetyTips = [
 
 const Installation = () => (
   <>
-    <Helmet>
-      <title>Fiber Optic Installation Guide | Step-by-Step Instructions</title>
-      <meta name="description" content="Complete fiber optic installation guide covering underground and aerial methods, step-by-step procedures, and essential safety precautions." />
-    </Helmet>
+    <SEOHead
+      title="Fiber Optic Installation Guide – Step-by-Step"
+      description="Complete fiber optic installation guide covering underground and aerial methods, step-by-step procedures, and essential safety precautions."
+      path="/installation"
+    />
 
     <div className="pt-20">
       {/* Hero */}

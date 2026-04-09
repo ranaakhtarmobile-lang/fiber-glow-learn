@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -37,10 +37,11 @@ const fiberTypes = [
 
 const Types = () => (
   <>
-    <Helmet>
-      <title>Types of Fiber Optic Cable – Single Mode, Multi Mode, Plastic | Fiber Optic Guide</title>
-      <meta name="description" content="Compare single mode, multi mode, and plastic optical fiber. Learn core sizes, distance capabilities, bandwidth, and real-world applications of each type." />
-    </Helmet>
+    <SEOHead
+      title="Types of Fiber Optic Cable – Single Mode, Multi Mode, Plastic"
+      description="Compare single mode, multi mode, and plastic optical fiber. Learn core sizes, distance capabilities, bandwidth, and real-world applications."
+      path="/types"
+    />
 
     <section className="section-padding pt-28">
       <div className="container-content">
