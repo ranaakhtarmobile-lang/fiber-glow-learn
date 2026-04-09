@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
 import InArticleAd from "@/components/InArticleAd";
@@ -60,10 +60,11 @@ const Tools = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Fiber Optic Calculators – Loss, NA, Attenuation | Fiber Optic Guide</title>
-        <meta name="description" content="Interactive fiber optic calculators: total link loss, numerical aperture, critical angle, and signal attenuation. Free tools for network engineers." />
-      </Helmet>
+      <SEOHead
+        title="Fiber Optic Calculators – Loss, NA, Attenuation"
+        description="Interactive fiber optic calculators: total link loss, numerical aperture, critical angle, and signal attenuation. Free tools for network engineers."
+        path="/tools"
+      />
 
       <section className="section-padding pt-28">
         <div className="container-content max-w-4xl">

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import SponsoredLink from "@/components/SponsoredLink";
 import { ArrowRight } from "lucide-react";
@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 const HowItWorks = () => (
   <>
-    <Helmet>
-      <title>How Fiber Optics Work – Total Internal Reflection Explained | Fiber Optic Guide</title>
-      <meta name="description" content="Understand the working principle of fiber optics: total internal reflection, light propagation through core and cladding, and signal transmission mechanics." />
-    </Helmet>
+    <SEOHead
+      title="How Fiber Optics Work – Total Internal Reflection"
+      description="Understand the working principle of fiber optics: total internal reflection, light propagation through core and cladding, and signal transmission."
+      path="/how-it-works"
+    />
 
     <section className="section-padding pt-28">
       <div className="container-content max-w-4xl">
