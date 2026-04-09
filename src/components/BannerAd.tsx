@@ -66,17 +66,6 @@ const BannerAd = ({ className = "" }: { className?: string }) => {
       className={`relative flex min-h-[90px] w-full max-w-[728px] items-center justify-center overflow-hidden ${className}`}
       style={{ margin: "0 auto" }}
     >
-      {showFallback && (
-        <div className="flex min-h-[90px] w-full flex-col items-center justify-center rounded-xl border border-border/50 bg-muted/20 px-4 py-4 text-center">
-          <span className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-            Sponsored banner
-          </span>
-          <span className="mt-2 text-sm font-medium text-foreground">728 × 90 ad slot</span>
-          <span className="mt-1 text-xs text-muted-foreground">
-            Preview mode mein placeholder dikh raha hai.
-          </span>
-        </div>
-      )}
     </div>
   );
 };

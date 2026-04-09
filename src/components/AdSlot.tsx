@@ -69,17 +69,6 @@ const AdSlot = ({ containerId, scriptSrc, dataAttrs, className = "" }: AdSlotPro
       id={containerId}
       className={`relative flex min-h-[90px] w-full items-center justify-center ${className}`}
     >
-      {showFallback && (
-        <div className="flex min-h-[90px] w-full max-w-[728px] flex-col items-center justify-center rounded-xl border border-border/50 bg-muted/20 px-4 py-4 text-center">
-          <span className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-            Sponsored placement
-          </span>
-          <span className="mt-2 text-sm font-medium text-foreground">Ad preview placeholder</span>
-          <span className="mt-1 text-xs text-muted-foreground">
-            Live ad publish ke baad yahan render hogi.
-          </span>
-        </div>
-      )}
     </div>
   );
 };

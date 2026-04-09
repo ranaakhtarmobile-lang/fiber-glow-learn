@@ -58,17 +58,6 @@ const InArticleAd = ({ className = "" }: { className?: string }) => {
         id={`container-564c505d47d7b7c31c0bf5471f77a5b7-${uniqueId}`}
         className="relative min-h-[90px] w-full max-w-[728px] overflow-hidden"
       >
-        {showFallback && (
-          <div className="flex min-h-[90px] w-full flex-col items-center justify-center rounded-xl border border-border/50 bg-muted/20 px-4 py-4 text-center">
-            <span className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-              Sponsored content
-            </span>
-            <span className="mt-2 text-sm font-medium text-foreground">Native ad preview placeholder</span>
-            <span className="mt-1 text-xs text-muted-foreground">
-              Published site par yahan native ad load hogi.
-            </span>
-          </div>
-        )}
       </div>
     </div>
   );
