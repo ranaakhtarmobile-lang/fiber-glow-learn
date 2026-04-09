@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import InArticleAd from "@/components/InArticleAd";
 import SponsoredLink from "@/components/SponsoredLink";

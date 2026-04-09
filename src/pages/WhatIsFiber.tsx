@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import ScrollReveal from "@/components/ScrollReveal";
 import InArticleAd from "@/components/InArticleAd";
 import SponsoredLink from "@/components/SponsoredLink";
@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 
 const WhatIsFiber = () => (
   <>
-    <Helmet>
-      <title>What is Fiber Optic? – Complete Explanation | Fiber Optic Guide</title>
-      <meta name="description" content="Learn what fiber optic cable is, how light transmits data through glass fibers, and why it outperforms copper cable for modern communications." />
-    </Helmet>
+    <SEOHead
+      title="What is Fiber Optic? – Complete Explanation"
+      description="Learn what fiber optic cable is, how light transmits data through glass fibers, and why it outperforms copper cable for modern communications."
+      path="/what-is-fiber"
+    />
 
     <section className="section-padding pt-28">
       <div className="container-content">
