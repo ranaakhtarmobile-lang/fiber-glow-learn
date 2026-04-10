@@ -21,12 +21,10 @@ const Index = () => (
     </div>
     <TopicCards />
     <InArticleAd />
-    <div className="flex justify-center py-4">
-      <SponsoredLink variant={0} />
-    </div>
+    <SponsoredLink variant={0} className="mx-auto my-2" />
     <AdvantagesSection />
     <InArticleAd />
-    <SponsoredLink variant={1} className="mx-auto my-4" />
+    <SponsoredLink variant={1} className="mx-auto my-2" />
     <FAQSection />
   </>
 );
