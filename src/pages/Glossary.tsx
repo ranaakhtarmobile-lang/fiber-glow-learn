@@ -133,9 +133,7 @@ const Glossary = () => {
           )}
 
           {/* Sponsored link */}
-          <div className="flex justify-center mb-8">
-            <SponsoredLink variant={3} />
-          </div>
+          <SponsoredLink variant={3} className="mb-6" />
 
           {/* Terms */}
           {grouped.length === 0 ? (
