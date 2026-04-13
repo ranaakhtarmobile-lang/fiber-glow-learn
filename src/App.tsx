@@ -7,8 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BannerAd from "@/components/BannerAd";
-import PageBannerAd from "@/components/PageBannerAd";
 import Index from "./pages/Index.tsx";
 import WhatIsFiber from "./pages/WhatIsFiber.tsx";
 import Types from "./pages/Types.tsx";
@@ -34,7 +32,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Navbar />
-            <PageBannerAd />
+            
             <main className="min-h-screen">
               <Routes>
                 <Route path="/" element={<Index />} />
