@@ -1,8 +1,6 @@
 import SEOHead from "@/components/SEOHead";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
-import InArticleAd from "@/components/InArticleAd";
-import SponsoredLink from "@/components/SponsoredLink";
 import { Cable, Zap, Shield, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -121,10 +119,6 @@ const WhatIsFiber = () => (
           ))}
         </div>
 
-        {/* Sponsored link */}
-        <div className="flex justify-center mt-8">
-          <SponsoredLink variant={4} />
-        </div>
 
         <ScrollReveal delay={0.1}>
           <div className="mt-12 text-center">

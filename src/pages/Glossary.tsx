@@ -3,8 +3,6 @@ import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
-import InArticleAd from "@/components/InArticleAd";
-import SponsoredLink from "@/components/SponsoredLink";
 
 const glossaryTerms = [
   { term: "APD", definition: "Avalanche Photodiode — a highly sensitive semiconductor photodetector that uses avalanche multiplication to amplify the signal. Used in long-haul fiber links." },
@@ -134,8 +132,6 @@ const Glossary = () => {
             </ScrollReveal>
           )}
 
-          {/* Sponsored link */}
-          <SponsoredLink variant={3} className="mb-6" />
 
           {/* Terms */}
           {grouped.length === 0 ? (
@@ -166,10 +162,6 @@ const Glossary = () => {
                     ))}
                   </div>
                 </div>
-                {/* Insert ad after every 5th letter group */}
-                {(groupIdx + 1) % 5 === 0 && groupIdx < grouped.length - 1 && (
-                  <InArticleAd />
-                )}
               </div>
             ))
           )}
