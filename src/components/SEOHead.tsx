@@ -17,7 +17,7 @@ const SITE_URL = "https://fiber-glow-learn.lovable.app";
 const SITE_NAME = "Fiber Optic Guide";
 const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a1ea90f4-fb01-49c0-a2e8-3de21337973c/id-preview-a3fa1499--afedd358-442c-41b0-b7a0-3398aa174f58.lovable.app-1774067308080.png";
 
-const SEOHead = ({ title, description, path, type = "article" }: SEOHeadProps) => {
+const SEOHead = ({ title, description, path, type = "article", breadcrumbs }: SEOHeadProps) => {
   const fullTitle = path === "/" ? title : `${title} | ${SITE_NAME}`;
   const canonical = `${SITE_URL}${path}`;
 
@@ -43,6 +43,17 @@ const SEOHead = ({ title, description, path, type = "article" }: SEOHeadProps) =
     }),
   };
 
+  const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.href}`,
+    })),
+  } : null;
+
   return (
     <Helmet>
       <title>{fullTitle}</title>
@@ -62,6 +73,9 @@ const SEOHead = ({ title, description, path, type = "article" }: SEOHeadProps) =
       <meta name="twitter:image" content={OG_IMAGE} />
 
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      {breadcrumbLd && (
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      )}
     </Helmet>
   );
 };
