@@ -2,8 +2,6 @@ import SEOHead from "@/components/SEOHead";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
-import InArticleAd from "@/components/InArticleAd";
-import SponsoredLink from "@/components/SponsoredLink";
 
 const Tools = () => {
   // Fiber Loss Calculator
@@ -105,10 +103,6 @@ const Tools = () => {
             </div>
           </ScrollReveal>
 
-          <InArticleAd />
-          <div className="flex justify-center mb-6">
-            <SponsoredLink variant={0} />
-          </div>
 
           {/* NA Calculator */}
           <ScrollReveal delay={0.15}>
@@ -202,8 +196,6 @@ const Tools = () => {
             </div>
           </ScrollReveal>
 
-          <InArticleAd />
-          <SponsoredLink variant={1} className="mx-auto mb-6" />
 
           {/* GPON vs XGS-PON vs EPON Comparison */}
           <ScrollReveal delay={0.25}>

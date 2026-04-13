@@ -1,8 +1,6 @@
 import SEOHead from "@/components/SEOHead";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
-import InArticleAd from "@/components/InArticleAd";
-import SponsoredLink from "@/components/SponsoredLink";
 import { HardHat, Shovel, Wind, ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, Radio, Server, Cable, Wifi, Router, MonitorSmartphone, Network, Layers } from "lucide-react";
 
 const steps = [
@@ -105,10 +103,6 @@ const Installation = () => (
         </div>
       </section>
 
-      {/* In-article ad between sections */}
-      <div className="container-content px-4">
-        <InArticleAd />
-      </div>
 
       {/* Underground vs Aerial */}
       <section className="section-padding-sm bg-card/30">
@@ -167,10 +161,6 @@ const Installation = () => (
         </div>
       </section>
 
-      {/* Sponsored link */}
-      <div className="container-content px-4 flex justify-center py-4">
-        <SponsoredLink variant={1} />
-      </div>
 
       {/* FTTH Network: Fiber to ONT to Router to WiFi */}
       <section className="section-padding">
@@ -402,10 +392,6 @@ const Installation = () => (
         </div>
       </section>
 
-      {/* In-article ad before safety section */}
-      <div className="container-content px-4">
-        <InArticleAd />
-      </div>
 
       {/* Safety */}
       <section className="section-padding">

@@ -3,8 +3,6 @@ import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import InArticleAd from "@/components/InArticleAd";
-import SponsoredLink from "@/components/SponsoredLink";
 
 const fiberTypes = [
   {
@@ -85,10 +83,6 @@ const Types = () => (
           ))}
         </div>
 
-        <InArticleAd />
-        <div className="flex justify-center mb-8">
-          <SponsoredLink variant={0} />
-        </div>
 
         {/* Comparison table */}
         <ScrollReveal>

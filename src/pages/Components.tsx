@@ -3,8 +3,6 @@ import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Cable, Plug, Cpu, MonitorDot, Layers, Settings, ArrowRight, Eye, Zap, Wrench, Droplets, Ruler, Shield, Radio } from "lucide-react";
 import { Link } from "react-router-dom";
-import InArticleAd from "@/components/InArticleAd";
-import SponsoredLink from "@/components/SponsoredLink";
 
 const mainComponents = [
   {
@@ -246,10 +244,6 @@ const Components = () => (
           ))}
         </div>
 
-        <InArticleAd />
-        <div className="flex justify-center mb-8">
-          <SponsoredLink variant={0} />
-        </div>
 
         {/* Small Tools Section */}
         <ScrollReveal>
@@ -276,8 +270,6 @@ const Components = () => (
           ))}
         </div>
 
-        <InArticleAd />
-        <SponsoredLink variant={1} className="mx-auto mb-8" />
 
         {/* Wire / Cable Types Section */}
         <ScrollReveal>
@@ -310,7 +302,7 @@ const Components = () => (
           ))}
         </div>
 
-        <InArticleAd />
+        
 
         {/* Connector Details Section */}
         <ScrollReveal>
