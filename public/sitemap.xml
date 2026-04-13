@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fiber-glow-learn.lovable.app/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/what-is-fiber</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/types</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/how-it-works</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/installation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/components</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/tools</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/uses</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/glossary</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/cable-guide</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/otdr-simulator</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://fiber-glow-learn.lovable.app/quiz</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/</loc><lastmod>2026-04-13</lastmod><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/what-is-fiber</loc><lastmod>2026-04-13</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/types</loc><lastmod>2026-04-13</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/how-it-works</loc><lastmod>2026-04-13</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/installation</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/components</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/tools</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/uses</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/glossary</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/cable-guide</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/otdr-simulator</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fiber-glow-learn.lovable.app/quiz</loc><lastmod>2026-04-13</lastmod><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>
