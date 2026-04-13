@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import InArticleAd from "@/components/InArticleAd";
 import SponsoredLink from "@/components/SponsoredLink";
@@ -42,12 +43,14 @@ const Installation = () => (
       title="Fiber Optic Installation Guide – Step-by-Step"
       description="Complete fiber optic installation guide covering underground and aerial methods, step-by-step procedures, and essential safety precautions."
       path="/installation"
+      breadcrumbs={[{ name: "Home", href: "/" }, { name: "Installation", href: "/installation" }]}
     />
 
     <div className="pt-20">
       {/* Hero */}
       <section className="section-padding fiber-gradient">
         <div className="container-content text-center">
+          <PageBreadcrumb items={[{ label: "Installation Guide" }]} />
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6">
               <HardHat className="w-4 h-4" />

@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
 import InArticleAd from "@/components/InArticleAd";
@@ -64,10 +65,12 @@ const Tools = () => {
         title="Fiber Optic Calculators – Loss, NA, Attenuation"
         description="Interactive fiber optic calculators: total link loss, numerical aperture, critical angle, and signal attenuation. Free tools for network engineers."
         path="/tools"
+        breadcrumbs={[{ name: "Home", href: "/" }, { name: "Calculators", href: "/tools" }]}
       />
 
       <section className="section-padding pt-28">
         <div className="container-content max-w-4xl">
+          <PageBreadcrumb items={[{ label: "Calculators" }]} />
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 mono">
               Interactive Tools

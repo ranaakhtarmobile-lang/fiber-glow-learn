@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import SponsoredLink from "@/components/SponsoredLink";
 import { Globe, Server, HeartPulse, Shield, Radio, Factory } from "lucide-react";
@@ -14,10 +15,11 @@ const useCases = [
 
 const Uses = () => (
   <>
-    <SEOHead title="Real World Uses of Fiber Optics – Applications" description="Discover how fiber optic technology is used in internet, data centers, healthcare, military, telecommunications, and industrial applications." path="/uses" />
+    <SEOHead title="Real World Uses of Fiber Optics – Applications" description="Discover how fiber optic technology is used in internet, data centers, healthcare, military, telecommunications, and industrial applications." path="/uses" breadcrumbs={[{ name: "Home", href: "/" }, { name: "Applications", href: "/uses" }]} />
 
     <section className="section-padding pt-28">
       <div className="container-content">
+        <PageBreadcrumb items={[{ label: "Applications" }]} />
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 mono">
             Applications

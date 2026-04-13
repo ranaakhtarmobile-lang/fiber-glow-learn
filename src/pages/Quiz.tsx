@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -89,9 +90,10 @@ const Quiz = () => {
 
   return (
     <>
-      <SEOHead title="Fiber Optic Quiz – Test Your Knowledge" description="Test your fiber optic knowledge with our interactive quiz covering GPON, OTDR, connectors, installation, and more." path="/quiz" />
+      <SEOHead title="Fiber Optic Quiz – Test Your Knowledge" description="Test your fiber optic knowledge with our interactive quiz covering GPON, OTDR, connectors, installation, and more." path="/quiz" breadcrumbs={[{ name: "Home", href: "/" }, { name: "Quiz", href: "/quiz" }]} />
       <div className="pt-24 pb-16">
         <div className="container-content px-4 max-w-2xl mx-auto">
+          <PageBreadcrumb items={[{ label: "Knowledge Quiz" }]} />
           <ScrollReveal>
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">

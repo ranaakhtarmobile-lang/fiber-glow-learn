@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -175,9 +176,10 @@ const CableGuide = () => {
 
   return (
     <>
-      <SEOHead title="Fiber Cable Selection Guide" description="Interactive guide to choose the right fiber optic cable type based on your installation environment, distance, and application." path="/cable-guide" />
+      <SEOHead title="Fiber Cable Selection Guide" description="Interactive guide to choose the right fiber optic cable type based on your installation environment, distance, and application." path="/cable-guide" breadcrumbs={[{ name: "Home", href: "/" }, { name: "Cable Guide", href: "/cable-guide" }]} />
       <div className="pt-24 pb-16">
         <div className="container-content px-4">
+          <PageBreadcrumb items={[{ label: "Cable Selection Guide" }]} />
           <ScrollReveal>
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">

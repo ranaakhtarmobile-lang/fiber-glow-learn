@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Cable, Plug, Cpu, MonitorDot, Layers, Settings, ArrowRight, Eye, Zap, Wrench, Droplets, Ruler, Shield, Radio } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -199,10 +200,11 @@ const connectorDetails = [
 
 const Components = () => (
   <>
-    <SEOHead title="Fiber Optic Components & Tools – Connectors, Splicers, OTDR" description="Complete guide to fiber optic components: cables, connectors, splicers, OTDR, VFL, power meters, cleaning kits with detailed specs." path="/components" />
+    <SEOHead title="Fiber Optic Components & Tools – Connectors, Splicers, OTDR" description="Complete guide to fiber optic components: cables, connectors, splicers, OTDR, VFL, power meters, cleaning kits with detailed specs." path="/components" breadcrumbs={[{ name: "Home", href: "/" }, { name: "Components", href: "/components" }]} />
 
     <section className="section-padding pt-28">
       <div className="container-content">
+        <PageBreadcrumb items={[{ label: "Components & Tools" }]} />
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 mono">
             Equipment & Hardware
