@@ -1,7 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
-import SponsoredLink from "@/components/SponsoredLink";
+
 import { Globe, Server, HeartPulse, Shield, Radio, Factory } from "lucide-react";
 
 const useCases = [
@@ -45,10 +45,6 @@ const Uses = () => (
           ))}
         </div>
 
-        {/* Sponsored link */}
-        <div className="flex justify-center mt-10">
-          <SponsoredLink variant={2} />
-        </div>
       </div>
     </section>
   </>
