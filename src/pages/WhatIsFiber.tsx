@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import InArticleAd from "@/components/InArticleAd";
 import SponsoredLink from "@/components/SponsoredLink";
@@ -11,10 +12,12 @@ const WhatIsFiber = () => (
       title="What is Fiber Optic? – Complete Explanation"
       description="Learn what fiber optic cable is, how light transmits data through glass fibers, and why it outperforms copper cable for modern communications."
       path="/what-is-fiber"
+      breadcrumbs={[{ name: "Home", href: "/" }, { name: "What is Fiber Optic?", href: "/what-is-fiber" }]}
     />
 
     <section className="section-padding pt-28">
       <div className="container-content">
+        <PageBreadcrumb items={[{ label: "What is Fiber Optic?" }]} />
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 mono">
             Fundamentals
