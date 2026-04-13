@@ -99,8 +99,6 @@ const WhatIsFiber = () => (
           </div>
         </ScrollReveal>
 
-        {/* In-article ad */}
-        <InArticleAd />
 
         {/* Key highlights */}
         <div className="grid sm:grid-cols-3 gap-5">
