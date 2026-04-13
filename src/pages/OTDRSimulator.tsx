@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState, useMemo } from "react";
 import InArticleAd from "@/components/InArticleAd";
@@ -123,10 +124,11 @@ const OTDRSimulator = () => {
 
   return (
     <>
-      <SEOHead title="OTDR Trace Simulator – Interactive Fiber Event Viewer" description="Interactive OTDR trace simulator. Visualize fiber events — connectors, splices, splitters, bends — and analyze signal loss." path="/otdr-simulator" />
+      <SEOHead title="OTDR Trace Simulator – Interactive Fiber Event Viewer" description="Interactive OTDR trace simulator. Visualize fiber events — connectors, splices, splitters, bends — and analyze signal loss." path="/otdr-simulator" breadcrumbs={[{ name: "Home", href: "/" }, { name: "OTDR Simulator", href: "/otdr-simulator" }]} />
 
       <section className="section-padding pt-28">
         <div className="container-content max-w-5xl">
+          <PageBreadcrumb items={[{ label: "OTDR Simulator" }]} />
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 mono">
               Simulator

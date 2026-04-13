@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import SponsoredLink from "@/components/SponsoredLink";
 import { ArrowRight } from "lucide-react";
@@ -10,10 +11,12 @@ const HowItWorks = () => (
       title="How Fiber Optics Work – Total Internal Reflection"
       description="Understand the working principle of fiber optics: total internal reflection, light propagation through core and cladding, and signal transmission."
       path="/how-it-works"
+      breadcrumbs={[{ name: "Home", href: "/" }, { name: "How It Works", href: "/how-it-works" }]}
     />
 
     <section className="section-padding pt-28">
       <div className="container-content max-w-4xl">
+        <PageBreadcrumb items={[{ label: "How It Works" }]} />
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 mono">
             Working Principle

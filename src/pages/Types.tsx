@@ -1,4 +1,5 @@
 import SEOHead from "@/components/SEOHead";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -41,10 +42,12 @@ const Types = () => (
       title="Types of Fiber Optic Cable – Single Mode, Multi Mode, Plastic"
       description="Compare single mode, multi mode, and plastic optical fiber. Learn core sizes, distance capabilities, bandwidth, and real-world applications."
       path="/types"
+      breadcrumbs={[{ name: "Home", href: "/" }, { name: "Types of Fiber", href: "/types" }]}
     />
 
     <section className="section-padding pt-28">
       <div className="container-content">
+        <PageBreadcrumb items={[{ label: "Types of Fiber" }]} />
         <ScrollReveal>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium mb-6 mono">
             Classification
