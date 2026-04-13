@@ -1,10 +1,16 @@
 import { Helmet } from "react-helmet-async";
 
+interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
   path: string;
   type?: "article" | "website";
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const SITE_URL = "https://fiber-glow-learn.lovable.app";
