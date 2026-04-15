@@ -1,7 +1,12 @@
 import SEOHead from "@/components/SEOHead";
 import FiberHero from "@/components/FiberHero";
 import TopicCards from "@/components/TopicCards";
+import FeaturesSection from "@/components/FeaturesSection";
 import AdvantagesSection from "@/components/AdvantagesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutSection from "@/components/AboutSection";
+import NewsletterSection from "@/components/NewsletterSection";
+import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 
 const Index = () => (
@@ -14,7 +19,12 @@ const Index = () => (
     />
     <FiberHero />
     <TopicCards />
+    <FeaturesSection />
     <AdvantagesSection />
+    <TestimonialsSection />
+    <AboutSection />
+    <NewsletterSection />
+    <ContactSection />
     <FAQSection />
   </>
 );
