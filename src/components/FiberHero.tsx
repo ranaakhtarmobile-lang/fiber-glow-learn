@@ -47,18 +47,6 @@ const FiberHero = () => {
       </div>
 
       <div className="container-content relative z-10 px-4 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, filter: "blur(6px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="mono mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary backdrop-blur-sm sm:mb-8">
-            <Zap className="h-3 w-3 animate-pulse" />
-            Complete Fiber Optic Knowledge Hub
-          </div>
-        </motion.div>
-
         {/* Heading with letter-by-letter animation */}
         <h1 className="mb-4 text-3xl font-bold leading-[1.08] sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl">
           <AnimatedText text="Fiber Optic Guide" className="text-foreground" />
