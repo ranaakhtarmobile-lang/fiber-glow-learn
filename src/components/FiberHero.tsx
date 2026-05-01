@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Zap } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import heroBg from "@/assets/hero-fiber-bg.jpg";
 
 const letterContainer = {
